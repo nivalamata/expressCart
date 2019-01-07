@@ -50,6 +50,9 @@ router.get('/checkout_return', (req, res, next) => {
             paymentMessage = 'Your payment was successfully completed';
             paymentDetails = '<p><strong>Order ID: </strong>' + paymentOrderId + '</p><p><strong>Transaction ID: </strong>' + payment.id + '</p>';
 
+            //update product quantity
+            common.reduceProductQuantity(req, res);
+
             // clear the cart
             if(req.session.cart){
                 req.session.cart = null;

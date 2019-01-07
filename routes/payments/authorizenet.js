@@ -105,6 +105,9 @@ router.post('/checkout_action', (req, res, next) => {
                         paymentDetails: req.session.paymentDetails
                     };
 
+                    //update product quantity
+                    common.reduceProductQuantity(req, res);
+
                     // clear the cart
                     if(req.session.cart){
                         req.session.cart = null;
