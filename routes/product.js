@@ -88,7 +88,7 @@ router.post('/admin/product/insert', common.restrict, common.checkAccess, (req, 
         productOptions: common.cleanHtml(req.body.productOptJson),
         productComment: common.checkboxBool(req.body.frmProductComment),
         productAddedDate: new Date(),
-        productQuantity: 0
+        productQuantity: req.body.frmProductQuantity
 
     };
 
